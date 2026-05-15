@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rvt-lerobot"
+version = "0.0.1"
+description = "RVT-style multi-view transformer policies for the LeRobot ecosystem"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "mujoco>=3.1.6",
+  "gymnasium",
+  "numpy",
+  "pillow",
+  "matplotlib",
+  "torch",
+]
+
+[project.optional-dependencies]
+lerobot = ["lerobot"]
+
+[tool.setuptools.packages.find]
+include = ["rvt_lerobot*"]
