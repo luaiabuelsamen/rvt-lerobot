@@ -31,8 +31,8 @@ keyframe*, not the next dense action.
 ```
 rvt_lerobot/
 ├── envs/so_arm_rvt_env.py        SO-ARM100 + 4 RGBD cameras, extrinsics/intrinsics export
-├── data/rlbench_format.py        PerAct on-disk format writer + keyframe extraction
-├── data/collect.py               Scripted demo collector
+├── data/                         NOT YET IMPLEMENTED. The PerAct-format writer and the
+│                                 scripted demo collector are planned, not written.
 ├── visualize/virtual_views.py    PCD fusion + 5 orthographic re-renders (the hero figure)
 └── policy/rvt_policy.py          LeRobot PreTrainedPolicy-shaped wrapper (stub)
 assets/
@@ -43,9 +43,14 @@ external/RVT/                     upstream NVlabs/RVT clone (training code)
 
 ## Quickstart
 
+> **Status: work in progress.** `rvt_lerobot.data` does not exist yet, so step 1 below
+> does not run on a fresh clone. The environment, the virtual-view reprojection and the
+> policy wrapper are real; data collection is not written. Step 2 works against an
+> episode you supply yourself.
+
 ```bash
-# 1) Collect a tiny dataset (PerAct format, 3 episodes)
-MUJOCO_GL=egl PYTHONPATH=. python -m rvt_lerobot.data.collect --num 3 --out data/demos
+# 1) NOT IMPLEMENTED YET: collect a tiny dataset (PerAct format, 3 episodes)
+# MUJOCO_GL=egl PYTHONPATH=. python -m rvt_lerobot.data.collect --num 3 --out data/demos
 
 # 2) Reproject one frame into 5 virtual views (the hero figure)
 PYTHONPATH=. python -m rvt_lerobot.visualize.virtual_views \
